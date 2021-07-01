@@ -33,3 +33,8 @@ export interface IAnimalsTypeCheckInterface {
     }]
   } 
 }
+
+export  interface DataLoad{
+    AnimalType: String,
+     url: String
+   }

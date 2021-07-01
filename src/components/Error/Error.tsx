@@ -1,14 +1,14 @@
 import React from 'react'
+import {Heading} from './style'
 
 const _ERROR_COMPONENT : React.FC = () => {
 
-    React.useEffect(()=>{
-    }, [])
-
-
     return (
-        <React.Fragment> 
-            <h1>Erro page</h1>   
+        <React.Fragment>
+            <Heading>
+            404 - page Not Found    
+            </Heading> 
+               
         </React.Fragment>
     )
 }

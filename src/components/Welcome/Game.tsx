@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {ANIMALDISPATCHER_STORE} from '../../controllers/DispatcherController'
 import Scoreboard from './Scoreboard'
 import {USERSCORES} from '../../globals/Type'
-import {IGameCheck, IGAMEUSERTYPECHECK} from '../../Abstract/helper'
+import {IGameCheck, IGAMEUSERTYPECHECK, DataLoad} from '../../Abstract/helper'
 
 const _GAME = ({ dispatch, Animals}: IGameCheck) : JSX.Element =>{
 
@@ -15,12 +15,9 @@ const _GAME = ({ dispatch, Animals}: IGameCheck) : JSX.Element =>{
         const timer : any =
         counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
         return () => clearInterval(timer);
-      }, [counter, Animals]);
+      }, [counter, Animals, score]);
 
-      interface DataLoad{
-       AnimalType: String,
-        url: String
-      }
+
       const CheckForFox =  (Object : DataLoad)   => {
           switch(Object.AnimalType){
               case 'fox':
@@ -44,10 +41,7 @@ const _GAME = ({ dispatch, Animals}: IGameCheck) : JSX.Element =>{
       }
 
       function ScoreBoardUpdateGameComponent(){
-          dispatch({
-              type : USERSCORES,
-              payload : 0
-          })
+          setScore(0);
           setCounter(30);
       }
 
@@ -67,12 +61,12 @@ const _GAME = ({ dispatch, Animals}: IGameCheck) : JSX.Element =>{
                     </GameFlex>
                     </Margin8>
                     <DisplayStand>
-                    {Animals?.map((anAnimal : any)=>{
-                        return <React.Fragment>
-                            <ImageSection onClick={()=>{CheckForFox(anAnimal)}}>
+                    {Animals?.map((anAnimal: any, index: any)=>{
+                        return <div key={index}>
+                            <ImageSection   onClick={()=>{CheckForFox(anAnimal)}}>
                             <img className="object-cover w-full h-full transform duration-700 backdrop-opacity-100" src={anAnimal?.url} alt="" />
                            </ImageSection>
-                        </React.Fragment>
+                        </div>
                     })}
                     </DisplayStand>
                  </InnerWrapper> 

@@ -51,15 +51,15 @@ const _Scoreboard  = ({ user, scores, handler}: any) : JSX.Element => {
         }else{
             var ParsedStorage = JSON.parse(CHECKSTORAGE);
             if(ParsedStorage.length > 7){
-                var array: any = [...ParsedStorage, obj];
-                array = array.sort((a: any, b: any)=> {return a.scores - b.scores});
-                var parsedAgain : any = JSON.stringify(array);
+                var arrayToParseObject: any = [...ParsedStorage, obj];
+                arrayToParseObject = arrayToParseObject.sort((a: any, b: any)=> {return a.scores - b.scores});
+                var parsedAgain : any = JSON.stringify(arrayToParseObject);
                 localStorage.setItem('players', parsedAgain);
             }else{
-                var array: any = [...ParsedStorage, obj];
-                array = array.sort((a: any, b: any)=> {return a.scores - b.scores});
-                var parsedAgain : any = JSON.stringify(array);
-                localStorage.setItem('players', parsedAgain);
+                var arrayBucketLessthan7: any = [...ParsedStorage, obj];
+                arrayBucketLessthan7 = arrayBucketLessthan7.sort((a: any, b: any)=> {return a.scores - b.scores});
+                var parsedLessthan7 : any = JSON.stringify(arrayBucketLessthan7);
+                localStorage.setItem('players', parsedLessthan7);
             }
         }
     }
