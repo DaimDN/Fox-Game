@@ -1,5 +1,5 @@
 import {GET_ANIMALS, ERROR} from '../globals/Type'
-const INITIALSTATE = {
+export const INITIALSTATE = {
         data : []
   };
 // eslint-disable-next-line import/no-anonymous-default-export

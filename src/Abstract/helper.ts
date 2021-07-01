@@ -38,3 +38,10 @@ export  interface DataLoad{
     AnimalType: String,
      url: String
    }
+
+
+   export interface IScoreboardPropsChecker{
+    user: any,
+    scores : Number,
+    handler: ()  => void;
+}

@@ -1,8 +1,11 @@
 import React from 'react'
 import {Sheet, Wrapper, HeadingContent, InnerWrapper,ScoreBoardFlex, ScoreBoardButton, Margin4, Margin8, Heading, Flex} from './style'
 import {connect} from 'react-redux'
-import {IGAMEUSERTYPECHECK} from '../../Abstract/helper'
-const _Scoreboard  = ({ user, scores, handler}: any) : JSX.Element => {
+import {IGAMEUSERTYPECHECK, IScoreboardPropsChecker} from '../../Abstract/helper'
+
+
+
+const _Scoreboard  = ({ user, scores, handler}: IScoreboardPropsChecker) : JSX.Element => {
 
     const [allPlayer, setallPlayers] : any = React.useState(undefined);
 
@@ -10,8 +13,7 @@ const _Scoreboard  = ({ user, scores, handler}: any) : JSX.Element => {
         getUserObjectandStore();
         sortedAlgorithm();
     }, [])
-
-  
+ 
 
     function sortedAlgorithm(){
         var Players : any = localStorage.getItem('players');
@@ -126,5 +128,5 @@ const mapStateToProps = (state : IGAMEUSERTYPECHECK) => (
 
     }
     
-    );
+);
 export default connect(mapStateToProps)(_Scoreboard);

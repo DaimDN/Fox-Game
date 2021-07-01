@@ -1,7 +1,7 @@
 import {USERLOADED, ERROR, GAMELOADED, USERSCORES} from '../globals/Type'
 
 
-const INITIALSTATE = {
+export const INITIALSTATE = {
         USER : '', 
         Loaded: false,
         userscores: 0

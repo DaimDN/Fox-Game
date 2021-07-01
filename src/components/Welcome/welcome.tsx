@@ -6,10 +6,12 @@ import GAME from './Game';
 
 
 const _WELCOME = ({user, dispatch, Loaded}: any) : JSX.Element => {
+
     const [name, setName] = React.useState('');
-    const formHandler = (e: any) => {
-        e.preventDefault();
-        const dataset = e.target.value;
+
+    const formHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+        event.preventDefault();
+        const dataset = event.target.value;
         setName(dataset);        
     }
     const submitHandler = () => {
